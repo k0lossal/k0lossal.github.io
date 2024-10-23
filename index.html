@@ -48,12 +48,39 @@
             color: var(--tg-theme-text-color);
             box-sizing: border-box;
         }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #212529;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: #007bff; /* azul */
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="card">
             <h3>Formulário de Documento</h3>
+            <div class="form-group">
             <label for="estados" class="form-label">Estado:</label>
             <select id="estados" class="form-select">
                 <option value="">Selecione um estado</option>
@@ -85,6 +112,7 @@
                 <option value="SE">Sergipe</option>
                 <option value="TO">Tocantins</option>
             </select>
+            </div>
             <input type="text" id="nome" placeholder="Nome completo">
             <input type="text" id="cpf" placeholder="CPF">
             <input type="date" id="nascimento">
