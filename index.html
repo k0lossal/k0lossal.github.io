@@ -165,8 +165,18 @@
 
         // Handler do botão principal
         tg.MainButton.onClick(function() {
+            const mensagem = [
+                'Confirme os dados abaixo:',
+                '',
+                `Estado (UF): ${estado}`,
+                `Estado (Nome): ${estadoNome}`,
+                '',
+                'Deseja prosseguir com o envio?'
+            ].join('\n');
             // Mostra diálogo de confirmação
-            tg.showConfirm('Deseja realmente enviar os dados?', function(confirmed) {
+            tg.showConfirm(mensagem, function(confirmed) {
+
+                
                 if (confirmed) {
                     // Usuário clicou em "Sim"
                     enviarDados();
