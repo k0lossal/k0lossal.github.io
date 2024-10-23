@@ -165,14 +165,11 @@
 
         // Handler do botão principal
         tg.MainButton.onClick(function() {
-            const mensagem = [
-                'Confirme os dados abaixo:',
-                '',
-                `Estado (UF): ${estado}`,
-                `Estado (Nome): ${estadoNome}`,
-                '',
-                'Deseja prosseguir com o envio?'
-            ].join('\n');
+            const mensagem = `Confirmação de Dados:
+            \nEstado (UF): ${document.getElementById('estados').value}
+            \nNome: ${document.getElementById('nome').value}
+            \nCPF: ${getElementById('cpf').value}
+            \nDeseja confirmar estas informações?`;
             // Mostra diálogo de confirmação
             tg.showConfirm(mensagem, function(confirmed) {
 
