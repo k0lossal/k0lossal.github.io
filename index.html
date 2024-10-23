@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Telegram Mini App</title>
+    <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
@@ -79,7 +79,6 @@
 <body>
     <div class="container">
         <div class="card">
-            <h3>Formulário de Documento</h3>
             <div class="form-group" style="display: none;">
             <label for="estados" class="form-label">Estado:</label>
             <select id="estados" class="form-select">
@@ -153,6 +152,11 @@
         tg.MainButton.text = "ENVIAR DADOS";
         tg.MainButton.enable();
         tg.MainButton.show();
+
+        tg.BackButton.text = "CANCELAR";
+        tg.BackButton.enable();
+        tg.BackButton.show();
+
 
         // Handler do botão principal
         tg.MainButton.onClick(function() {
