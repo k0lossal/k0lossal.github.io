@@ -153,9 +153,19 @@
         tg.MainButton.enable();
         tg.MainButton.show();
 
-        /* tg.BackButton.text = "CANCELAR";
-        tg.BackButton.enable();
-        tg.BackButton.show(); */
+        tg.BackButton.show();  // Mostra o botão de voltar
+
+        tg.BackButton.onClick(function() {
+
+            // Ação quando o botão de voltar for clicado
+
+            console.log("Botão voltar clicado");
+
+            // Exemplo: voltar para a tela anterior
+
+            // tg.close();
+
+        });
 
 
         // Handler do botão principal
