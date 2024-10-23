@@ -122,6 +122,27 @@
     </div>
 
     <script>
+
+        // Função para obter parâmetros da URL
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Função para definir o estado selecionado
+        function setEstadoSelecionado() {
+            const estadoParam = getUrlParameter('estado');
+            if (estadoParam) {
+                const selectEstado = document.getElementById('estados');
+                selectEstado.value = estadoParam.toUpperCase();
+            }
+        }
+
+        // Executar quando a página carregar
+        window.onload = setEstadoSelecionado;
+
+
+
         let tg = window.Telegram.WebApp;
         
         // Inicializar o Mini App
