@@ -209,7 +209,7 @@
 
             if (!cpf || cpf.length < 11 || !validaCPF(cpf)) {
                 tg.showAlert('Por favor, insira um CPF válido');
-                return;
+                return false;
             }
 
             if (!nascimento) {
