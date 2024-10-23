@@ -178,8 +178,7 @@
             const estado = document.getElementById('estados').value.trim();
             const nome = document.getElementById('nome').value.trim();
             const cpf = document.getElementById('cpf').value.trim();
-            const nascimento = document.getElementById('nascimento').value.trim();
-
+            const nascimento = document.getElementById('nascimento').value.split('-').reverse().join('/');
 
             const mensagem = `Confirmação de Dados:
                 \nEstado (UF): ${document.getElementById('estados').value}
@@ -220,7 +219,7 @@
                         estado: document.getElementById('estados').value,
                         nome: document.getElementById('nome').value,
                         cpf: document.getElementById('cpf').value,
-                        nascimento: document.getElementById('nascimento').value.split('-').reverse().join('/'),//document.getElementById('nascimento').value,
+                        nascimento: document.getElementById('nascimento').value.split('-').reverse().join('/'),
                         timestamp: Date.now()
                     };
 
