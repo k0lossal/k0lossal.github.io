@@ -165,23 +165,7 @@
 
         // Handler do botão principal
         tg.MainButton.onClick(function() {
-            const mensagem = `Confirmação de Dados:
-                \nEstado (UF): ${document.getElementById('estados').value}
-                \nNome: ${document.getElementById('nome').value}
-                \nCPF: ${document.getElementById('cpf').value}
-                \nDeseja confirmar estas informações?`;
-            // Mostra diálogo de confirmação
-            tg.showConfirm(mensagem, function(confirmed) {
-
-                
-                if (confirmed) {
-                    // Usuário clicou em "Sim"
-                    enviarDados();
-                } else {
-                    // Usuário clicou em "Não"
-                    tg.showAlert('Operação cancelada');
-                }
-            });
+            enviarDados();
         });
 
         /* tg.BackButton.onClick(function() {
@@ -196,37 +180,57 @@
             const cpf = document.getElementById('cpf').value.trim();
             const nascimento = document.getElementById('nascimento').value.trim();
 
-            // Validações individuais
-            if (!estado) {
-                tg.showAlert('Por favor, selecione um estado');
-                return;
-            }
 
-            if (!nome || nome.length < 3) {
-                tg.showAlert('Por favor, insira um nome válido');
-                return;
-            }
+            const mensagem = `Confirmação de Dados:
+                \nEstado (UF): ${document.getElementById('estados').value}
+                \nNome: ${document.getElementById('nome').value}
+                \nCPF: ${document.getElementById('cpf').value}
+                \nDeseja confirmar estas informações?`;
 
-            if (!cpf || cpf.length < 11 || !validaCPF(cpf)) {
-                tg.showAlert('Por favor, insira um CPF válido');
-                return false;
-            }
+                // Validações individuais
+                if (!estado) {
+                    tg.showAlert('Por favor, selecione um estado');
+                    return false;
+                }
 
-            if (!nascimento) {
-                tg.showAlert('Por favor, selecione uma data de nascimento');
-                return;
-            }
+                if (!nome || nome.length < 3) {
+                    tg.showAlert('Por favor, insira um nome válido');
+                    return false;
+                }
+
+                if (!cpf || cpf.length < 11 || !validaCPF(cpf)) {
+                    tg.showAlert('Por favor, insira um CPF válido');
+                    return false;
+                }
+
+                if (!nascimento) {
+                    tg.showAlert('Por favor, selecione uma data de nascimento');
+                    return false;
+                }
 
 
-            const dados = {
-                estado: document.getElementById('estados').value,
-                nome: document.getElementById('nome').value,
-                cpf: document.getElementById('cpf').value,
-                nascimento: document.getElementById('nascimento').value,
-                timestamp: Date.now()
-            };
 
-            tg.sendData(JSON.stringify(dados));
+            // Mostra diálogo de confirmação
+            tg.showConfirm(mensagem, function(confirmed) {
+
+                
+                if (confirmed) {
+                    // Usuário clicou em "Sim"
+                    const dados = {
+                        estado: document.getElementById('estados').value,
+                        nome: document.getElementById('nome').value,
+                        cpf: document.getElementById('cpf').value,
+                        nascimento: document.getElementById('nascimento').value,
+                        timestamp: Date.now()
+                    };
+
+                    tg.sendData(JSON.stringify(dados));
+                } else {
+                    // Usuário clicou em "Não"
+                    tg.showAlert('Operação cancelada');
+                }
+            });
+
         }
 
         function fecharApp() {
