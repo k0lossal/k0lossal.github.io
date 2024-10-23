@@ -156,7 +156,7 @@
         tg.BackButton.show();  // Mostra o botão de voltar
 
         tg.BackButton.onClick(function() {
-            
+
 
             tg.close();
 
@@ -165,7 +165,16 @@
 
         // Handler do botão principal
         tg.MainButton.onClick(function() {
-            enviarDados();
+            // Mostra diálogo de confirmação
+            tg.showConfirm('Deseja realmente enviar os dados?', function(confirmed) {
+                if (confirmed) {
+                    // Usuário clicou em "Sim"
+                    enviarDados();
+                } else {
+                    // Usuário clicou em "Não"
+                    tg.showAlert('Operação cancelada');
+                }
+            });
         });
 
         /* tg.BackButton.onClick(function() {
