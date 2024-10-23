@@ -163,6 +163,10 @@
             enviarDados();
         });
 
+        tg.BackButton.onClick(function() {
+            fecharApp();
+        });
+
         function enviarDados() {
             const dados = {
                 estado: document.getElementById('estados').value,
