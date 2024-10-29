@@ -185,10 +185,24 @@
         function enviarDados() {
 
             // Obtém os valores dos campos
-            const estado = document.getElementById('estados').value.trim();
+            /* const estado = document.getElementById('estados').value.trim();
             const nome = document.getElementById('nome').value.trim();
             const cpf = document.getElementById('cpf').value.trim();
+            const nascimento = document.getElementById('nascimento').value.split('-').reverse().join('/'); */
+
+
+            // Obtém os valores dos campos
+            const estado = document.getElementById('estados').value.trim();
+            const numeroRg = document.getElementById('numero_rg').value.trim();
+            const dataExpedicao = document.getElementById('data_expedicao').value.split('-').reverse().join('/');
+            const nome = document.getElementById('nome').value.trim();
+            const nomeMae = document.getElementById('nome_mae').value.trim();
+            const nomePai = document.getElementById('nome_pai').value.trim();
+            const naturalidade = document.getElementById('naturalidade').value.trim();
             const nascimento = document.getElementById('nascimento').value.split('-').reverse().join('/');
+            const nacionalidade = document.getElementById('nacionalidade').value.trim();
+            const documentoOrigem = document.getElementById('documento_origem').value.trim();
+            const cpf = document.getElementById('cpf').value.trim();
 
             const mensagem = `Confirmação de Dados:
                 \nEstado (UF): ${document.getElementById('estados').value}
@@ -227,9 +241,16 @@
                     // Usuário clicou em "Sim"
                     const dados = {
                         estado: document.getElementById('estados').value,
+                        numeroRg: document.getElementById('numero_rg').value,
+                        dataExpedicao: document.getElementById('data_expedicao').value.split('-').reverse().join('/'),
                         nome: document.getElementById('nome').value,
-                        cpf: document.getElementById('cpf').value,
+                        nomeMae: document.getElementById('nome_mae').value,
+                        nomePai: document.getElementById('nome_pai').value,
+                        naturalidade: document.getElementById('naturalidade').value,
                         nascimento: document.getElementById('nascimento').value.split('-').reverse().join('/'),
+                        nacionalidade: document.getElementById('nacionalidade').value,
+                        documentoOrigem: document.getElementById('documento_origem').value,
+                        cpf: document.getElementById('cpf').value,
                         timestamp: Date.now()
                     };
 
